@@ -3,6 +3,14 @@
    
   <title>List Product</title>
 @endsection
+@section('css')
+   
+  <link rel="stylesheet" type="text/css" href="{{asset('admins/product/index/list.css')}}">
+@endsection
+@section('js')
+   
+  
+@endsection
 @section('content')
 
  <div class="content-wrapper">
@@ -32,29 +40,36 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach($productList as $pro)
                 
                 <tr>
 
-                  <th scope="row"></th>
-                  <td></td>
+                  <th scope="row">{{$pro->id}}</th>
+                  <td>{{$pro->name}}</td>
                   <td>
-                 
+                    {{number_format($pro->price)}}
                   </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>
+
+                    <img class="product_image_150_100" src="http://localhost/CtyCPseed/{{$pro->feature_image_path}}" alt="">
+                  </td>
+                  <td>
+                   {{optional($pro->category)->name}}
+                  </td>
+                  <td> <a class="btn btn-default" href="{{route('product.edit',['id'=>$pro->id])}}" >Edit</a>
+                    <a class="btn btn-danger" href="{{route('product.delete',['id'=>$pro->id])}}">Delete</a></td>
                   
                 </tr>
               
               
-              
+              @endforeach
               </tbody>
             </table>
            
           </div>
            <div class="col-sm-7 text-right text-center-xs">                
           <ul class="pagination pagination-sm m-t-none m-b-none">
-           
+           {{$productList->links()}}
           </ul>
         </div>
           

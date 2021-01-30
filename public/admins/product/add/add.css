@@ -1,5 +1,12 @@
 .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
-    cursor: default;
-    padding-left: 2px;
-    padding-right: 5px;
-    color: black;
+    
+    color: red;
+}
+.image_detail_product,.feature_image{
+	width: 100%;
+	height: 130px;
+	object-fit: cover;
+}
+.container_image_detail ,.feature_image_container{
+	margin-top: 20px;
+}
