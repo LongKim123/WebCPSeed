@@ -3,6 +3,11 @@
    
   <title>Trang chủ</title>
 @endsection
+@section('js')
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{asset('admins/menu/index/list.js')}}" type="text/javascript" charset="utf-8" async defer></script>
+  
+@endsection
 @section('content')
 
  <div class="content-wrapper">
@@ -36,7 +41,7 @@
                   <td>{{$menu->name}}</td>
                   <td>
                      <a href="{{route('menus.edit',['id'=>$menu->id])}}" class="btn btn-default">Edit</a>
-                     <a href="{{route('menus.delete',['id'=>$menu->id])}}" class="btn btn-danger">Delete</a>
+                     <a data-url="{{route('menus.delete',['id'=>$menu->id])}}" class="btn btn-danger action_delete">Delete</a>
                     
                   </td>
                   

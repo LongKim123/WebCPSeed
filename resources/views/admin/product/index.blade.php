@@ -8,7 +8,8 @@
   <link rel="stylesheet" type="text/css" href="{{asset('admins/product/index/list.css')}}">
 @endsection
 @section('js')
-   
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{asset('admins/product/index/list.js')}}" type="text/javascript" charset="utf-8" async defer></script>
   
 @endsection
 @section('content')
@@ -57,7 +58,7 @@
                    {{optional($pro->category)->name}}
                   </td>
                   <td> <a class="btn btn-default" href="{{route('product.edit',['id'=>$pro->id])}}" >Edit</a>
-                    <a class="btn btn-danger" href="{{route('product.delete',['id'=>$pro->id])}}">Delete</a></td>
+                    <a data-url="{{route('product.delete',['id'=>$pro->id])}}" class="btn btn-danger action_delete" >Delete</a></td>
                   
                 </tr>
               
