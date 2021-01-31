@@ -28,7 +28,7 @@ class ProductAddRequest extends FormRequest
             'price'=>'required',
             'category_id'=>'required',
             'contents'=>'required',
-            'tags[]' => 'required',
+            
 
         ];
     }
@@ -45,7 +45,7 @@ class ProductAddRequest extends FormRequest
             'contents.required'=>'Nôi dung không đươc để trống',
             // 'tags[].array'=>'tag không đươc để trống',
             // 'tags[].size'=>'tag không đươc dưới 5',
-            'tags[].required'=>'tag không đươc để trống',
+            
 
         ];
     }

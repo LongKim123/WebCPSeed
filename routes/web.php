@@ -43,6 +43,7 @@ Route::prefix('admin')->group(function () {
     	'uses'=>'CategoryController@update']);
 });
 
+
 Route::prefix('menus')->group(function () {
     Route::get('/',[	
     	'as'=>'menus.index',
@@ -84,6 +85,36 @@ Route::prefix('product')->group(function () {
        Route::get('/delete/{id}',[ 
         'as'=>'product.delete',
         'uses'=>'ProductController@delete']);
+      
+});
+Route::prefix('slider')->group(function () {
+    
+     Route::get('/',[   
+        'as'=>'slider.index',
+        'uses'=>'AdminSliderController@index']);
+       Route::get('/create',[   
+        'as'=>'slider.create',
+        'uses'=>'AdminSliderController@create']);
+        Route::post('/store',[   
+        'as'=>'slider.store',
+        'uses'=>'AdminSliderController@store']);
+        Route::get('/edit/{id}',[   
+        'as'=>'slider.edit',
+        'uses'=>'AdminSliderController@edit']);
+      Route::post('/update/{id}',[   
+        'as'=>'slider.update',
+        'uses'=>'AdminSliderController@update']);
+       Route::get('/delete/{id}',[ 
+        'as'=>'slider.delete',
+        'uses'=>'AdminSliderController@delete']);
+      
+});
+Route::prefix('setings')->group(function () {
+    
+     Route::get('/',[   
+        'as'=>'setings.index',
+        'uses'=>'AdminSettingController@index']);
+      
       
 });
 
