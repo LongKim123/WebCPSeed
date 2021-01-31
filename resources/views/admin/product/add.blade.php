@@ -14,6 +14,17 @@
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
   @include('partial.content_header',['name'=>'Product','key'=>'Add'])
+<!--    <div class=col-md-12>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+   </div> -->
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -25,12 +36,24 @@
               @csrf
               <div class="form-group">
                 <label >Tên Sản Phẩm</label>
-                <input type="text" class="form-control" name="name"   placeholder="mời nhâp tên sản phẩm">
+                <input value="{{old('name')}}" type="text" class="form-control @error('name') is-invalid @enderror" name="name"   placeholder="mời nhâp tên sản phẩm">
+                @error('name')
+                   <div class=" alert alert-danger">
+                     {{$message}}
+                  </div>
+                 @enderror
+                
+              
                
               </div>
               <div class="form-group">
                 <label >Giá Sản Phẩm</label>
-                <input type="text" class="form-control" name="price"   placeholder="mời nhâp giá sản phẩm">
+                <input value="{{old('price')}}" type="text" class="form-control @error('price') is-invalid @enderror" name="price"   placeholder="mời nhâp giá sản phẩm">
+                 @error('price')
+                   <div class=" alert alert-danger">
+                     {{$message}}
+                  </div>
+                 @enderror
                
               </div>
               <div class="form-group">
@@ -45,21 +68,38 @@
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Nhập nội dung sản phẩm</label>
-                <textarea class="form-control" name="contents" row="3" ></textarea>
+                <textarea class="form-control @error('contents') is-invalid @enderror" name="contents" row="3" >{{old('contents')}}</textarea>
+                 @error('contents')
+                   <div class=" alert alert-danger">
+                     {{$message}}
+                  </div>
+                 @enderror
               </div>
+
               <div class="form-group">
                 <label >Chon danh muc</label>
-                <select class="form-control select_init"  name="category_id"  >
-                  <option value="0">Chon danh muc cha</option>
+                <select class="form-control select_init @error('category_id') is-invalid @enderror"  name="category_id"  >
+                  <option value="">Chon danh muc</option>
                   {!!$htmlOption!!}
                   
                 </select>
+                  @error('category_id')
+                   <div class=" alert alert-danger">
+                     {{$message}}
+                  </div>
+                 @enderror
+
               </div>
                <div class="form-group">
                 <label >Nhập tags</label>
-                <select name="tags[]" class="form-control tags_select_choose" multiple="multiple">
+                <select name="tags[]" class="form-control tags_select_choose @error('tags[]') is-invalid @enderror" multiple="multiple">
                  
                 </select>
+                @error('tags[]')
+                   <div class=" alert alert-danger">
+                     {{$message}}
+                  </div>
+                 @enderror
                 
               </div>
             <button type="submit" class="btn btn-primary">Submit</button>

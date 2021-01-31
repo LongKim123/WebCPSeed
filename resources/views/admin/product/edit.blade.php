@@ -13,6 +13,7 @@
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
   @include('partial.content_header',['name'=>'Product','key'=>'Edit'])
+ 
     <!-- /.content-header -->
 
     <!-- Main content -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductAddRequest;
 use App\Category;
 use App\Products;
 use App\Tag;
@@ -12,6 +13,7 @@ use App\Components\Recusive;
 use Illuminate\Support\Str;
 use Storage;
 use App\Traits\StorageImageTrait;
+
 use DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
@@ -48,7 +50,7 @@ class ProductController extends Controller
     	$htmlOption= $recusive->categoryRecusive($parentId);
     	return $htmlOption;
     }
-    public function store(Request $request){
+    public function store(ProductAddRequest $request){
     	try{
     		DB::beginTransaction();
     		$dataProductCreate=[
@@ -102,6 +104,7 @@ class ProductController extends Controller
    		
     }
     public function edit($id){
+
     	$product=$this->product->find($id);
     	$htmlOption=$this->getCate($product->category_id);
     	return view('admin.product.edit',compact('product','htmlOption'));
