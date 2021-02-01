@@ -9,7 +9,7 @@
 @endsection
 @section('js')
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="{{asset('admins/product/index/list.js')}}" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="{{asset('admins/main.js')}}" type="text/javascript" charset="utf-8" async defer></script>
   
 @endsection
 @section('content')

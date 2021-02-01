@@ -61,7 +61,7 @@
             </a>
           </li>
             <li class="nav-item">
-            <a href="{{route('setings.index')}}" class="nav-link">
+            <a href="{{route('settings.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý Settings
