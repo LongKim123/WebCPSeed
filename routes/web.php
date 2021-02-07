@@ -25,10 +25,12 @@ Route::prefix('admin')->group(function () {
 	Route::prefix('categories')->group(function () {
     Route::get('/create',[	
     	'as'=>'categories.create',
-    	'uses'=>'CategoryController@create']);
+    	'uses'=>'CategoryController@create',
+      ]);
      Route::get('/',[	
     	'as'=>'categories.index',
-    	'uses'=>'CategoryController@index']);
+    	'uses'=>'CategoryController@index',
+      'middleware'=>'can:category-list']);
       Route::post('/store',[	
     	'as'=>'categories.store',
     	'uses'=>'CategoryController@store']);
@@ -175,7 +177,18 @@ Route::prefix('roles')->group(function () {
         'uses'=>'AdminRoleController@delete']);
      
 });
- 
+ Route::prefix('permissions')->group(function () {
+    
+     
+     Route::get('/create',[   
+        'as'=>'permissions.create',
+        'uses'=>'AdminPermissionController@createPermissions']);
+      Route::post('/store',[   
+        'as'=>'permissions.store',
+        'uses'=>'AdminPermissionController@store']);
+     
+     
+});
       
 
 

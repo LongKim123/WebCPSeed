@@ -1,4 +1,4 @@
-<?php
+<?php   
 
 namespace App\Providers;
 
@@ -25,6 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('category-list', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.list-category'));
+        // return $user->isAdmin;
+    });
     }
 }
