@@ -37,7 +37,7 @@
                 <label >Mô tả Slider </label>
                <textarea
                   class="form-control @error('description') is-invalid @enderror"
-                  name="description" rows="4">{{ old('description') }}</textarea>
+                  name="description" id="ckeditor" rows="4">{{ old('description') }}</textarea>
  
                
               </div>

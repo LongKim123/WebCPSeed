@@ -68,7 +68,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Nhập nội dung sản phẩm</label>
-                <textarea class="form-control @error('contents') is-invalid @enderror" name="contents" row="3" >{{old('contents')}}</textarea>
+                <textarea class="form-control @error('contents') is-invalid @enderror" name="contents" id="ckeditor" row="3" >{{old('contents')}}</textarea>
                  @error('contents')
                    <div class=" alert alert-danger">
                      {{$message}}
@@ -125,5 +125,6 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="{{asset('admins/product/add/add.js')}}">
    </script>
+
 
 @endsection

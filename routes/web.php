@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'AdminController@loginAdmin');
-Route::post('/', 'AdminController@postloginAdmin');
-					
-Route::get('/home', function () {
+Route::post('/login', 'AdminController@postloginAdmin');
+Route::get('/logout', 'AdminController@logout');
+        
+Route::get('home', function () {
     return view('home');
 });
 				
@@ -52,6 +53,36 @@ Route::prefix('admin')->group(function () {
 });
 
 
+  Route::prefix('categories_hr')->group(function () {
+    Route::get('/create',[  
+      'as'=>'categories_hr.create',
+      'uses'=>'CategoryHrControlller@create'
+      
+      ]);
+    Route::get('/',[  
+      'as'=>'categories_hr.index',
+      'uses'=>'CategoryHrControlller@index',
+      ]);
+    Route::post('/store',[  
+      'as'=>'categories_hr.store',
+      'uses'=>'CategoryHrControlller@store'
+      ]);
+     Route::get('/delete/{id}',[  
+      'as'=>'categories_hr.delete',
+      'uses'=>'CategoryHrControlller@delete'
+      ]);
+      Route::get('/edit/{id}',[ 
+      'as'=>'categories_hr.edit',
+      'uses'=>'CategoryHrControlller@edit',
+      
+    ]);
+    Route::post('/update/{id}',[  
+      'as'=>'categories_hr.update',
+      'uses'=>'CategoryHrControlller@update',
+     ]);
+      
+     
+});
 Route::prefix('menus')->group(function () {
     Route::get('/',[	
     	'as'=>'menus.index',
@@ -78,6 +109,35 @@ Route::prefix('menus')->group(function () {
      ]);
     
 });
+
+Route::prefix('hr')->group(function () {
+    
+     Route::get('/',[ 
+      'as'=>'hr.index',
+      'uses'=>'HRController@index',
+      'middleware'=>'can:product-list']);
+      Route::get('/create',[  
+      'as'=>'hr.create',
+      'uses'=>'HRController@create',
+      'middleware'=>'can:product-add']);
+      Route::post('/store',[  
+      'as'=>'hr.store',
+      'uses'=>'HRController@store']);
+      Route::get('/edit/{id}',[ 
+        'as'=>'hr.edit',
+        'uses'=>'HRController@edit'
+        ]);
+       Route::post('/update/{id}',[ 
+        'as'=>'hr.update',
+        'uses'=>'HRController@update']);
+       Route::get('/delete/{id}',[ 
+        'as'=>'hr.delete',
+        'uses'=>'HRController@delete'
+        ]);
+      
+});
+
+
 Route::prefix('product')->group(function () {
     
      Route::get('/',[	

@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    như cái lồn ấy
+                    
                 </div>
 
                 <div class="links">

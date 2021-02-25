@@ -14,7 +14,7 @@
           <img src="{{asset('adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="{{URL::to('/logout')}}" class="d-block">logout</a>
         </div>
       </div>
 
@@ -60,6 +60,32 @@
               </p>
             </a>
           </li>
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                Nhân sự
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('categories_hr.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Phân loại nhân sự</p>
+                </a>
+              </li>
+              
+              
+              <li class="nav-item">
+                <a href="{{route('hr.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách nhân sự</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
             <li class="nav-item">
             <a href="{{route('settings.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -83,7 +109,6 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Danh sách các vai trò(Roles)
-                
               </p>
             </a>
           </li>
@@ -95,6 +120,7 @@
               </p>
             </a>
           </li>
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

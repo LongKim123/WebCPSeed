@@ -35,7 +35,7 @@
               </div>
               <div class="form-group">
                 <label >Ảnh đại diện</label>
-                <input type="file" class="form-control-file" id="feature_image_path" name="feature_image_path"   >
+                <input type="file" class="form-control-file" name="feature_image_path"   >
                
               </div>
               <div class="col-md-4 feature_image_container">
@@ -64,7 +64,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Nhập nội dung sản phẩm</label>
-                <textarea  class="form-control" name="contents" row="3" >{{$product->content}}</textarea>
+                <textarea  class="form-control" name="contents" row="3" id="ckeditor" >{{$product->content}}</textarea>
               </div>
               <div class="form-group">
                 <label >Chon danh muc</label>

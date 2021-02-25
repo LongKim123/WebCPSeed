@@ -61,7 +61,7 @@ class ProductController extends Controller
     		'category_id'=>$request->category_id];
     	$dataUploadFeatureImage=$this->storageTraitUpload($request,'feature_image_path','product');
     	
-    	if(!empty($dataProductCreate)){
+    	if(!empty($dataUploadFeatureImage)){
     		$dataProductCreate['feature_image_name']=$dataUploadFeatureImage['file_name'];
     		$dataProductCreate['feature_image_path']=$dataUploadFeatureImage['file_path'];
     	 	
@@ -120,9 +120,9 @@ class ProductController extends Controller
     		'category_id'=>$request->category_id];
     	$dataUploadFeatureImage=$this->storageTraitUpload($request,'feature_image_path','product');
     	
-    	if(!empty($dataProductCreate)){
-    		$dataProductCreate['feature_image_name']=$dataUploadFeatureImage['file_name'];
-    		$dataProductCreate['feature_image_path']=$dataUploadFeatureImage['file_path'];
+    	if(!empty($dataUploadFeatureImage)){
+    		$dataProductUpdate['feature_image_name']=$dataUploadFeatureImage['file_name'];
+    		$dataProductUpdate['feature_image_path']=$dataUploadFeatureImage['file_path'];
     	 	
     	}
     	$this->product->find($id)->update($dataProductUpdate);

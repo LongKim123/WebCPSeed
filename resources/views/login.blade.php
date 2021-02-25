@@ -94,8 +94,9 @@
 						<img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo" alt="Logo">
 					</div>
 				</div>
+				
 				<div class="d-flex justify-content-center form_container">
-					<form action="" method="post">
+					<form action="{{URL::to('/login')}}" method="post">
 						@csrf
 						<div class="input-group mb-3">
 							<div class="input-group-append">

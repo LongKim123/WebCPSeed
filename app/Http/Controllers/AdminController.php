@@ -25,4 +25,8 @@ class AdminController extends Controller
             return redirect()->to('home');
         }
     }
+    public function logout(){
+        Auth::logout();
+        return view('login');
+    }
 }

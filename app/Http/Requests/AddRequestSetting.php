@@ -24,7 +24,7 @@ class AddRequestSetting extends FormRequest
     public function rules()
     {
         return [
-            'config_key'=>'required|unique:settings|max:255',
+            'config_key'=>'required|max:255',
             'config_name'=>'required'
 
         ];
@@ -33,7 +33,7 @@ class AddRequestSetting extends FormRequest
      public function messages(){
          return [
             'config_key.required'=>'Tên không đươc để trống',
-            'config_key.unique'=>'Tên không đươc trùng',
+           
             'config_key.max'=>'Các ký tư quá dài',
             'config_name.required'=>'Config_name không đươc để trống',
             
