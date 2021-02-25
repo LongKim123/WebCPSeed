@@ -148,5 +148,46 @@ class AuthServiceProvider extends ServiceProvider
         // return $user->isAdmin;
     });
 
+        //hr
+
+         Gate::define('hr-list', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.list-hr'));
+        // return $user->isAdmin;
+    });
+        Gate::define('hr-add', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.add-hr'));
+        // return $user->isAdmin;
+    });
+        Gate::define('hr-delete', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.delete-hr'));
+        // return $user->isAdmin;
+    });
+        Gate::define('hr-edit', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.edit-hr'));
+        // return $user->isAdmin;
+    });
+
+        //category_hr
+
+         //hr
+
+         Gate::define('category_hr-list', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.list-category_hr'));
+        // return $user->isAdmin;
+    });
+        Gate::define('category_hr-add', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.add-category_hr'));
+        // return $user->isAdmin;
+    });
+        Gate::define('category_hr-delete', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.delete-category_hr'));
+        // return $user->isAdmin;
+    });
+        Gate::define('category_hr-edit', function ($user) {
+            return $user->checkPermissionAccess(config('permissions.access.edit-category_hr'));
+        // return $user->isAdmin;
+    });
+
+
     }
 }

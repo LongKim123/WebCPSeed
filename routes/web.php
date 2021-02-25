@@ -56,12 +56,14 @@ Route::prefix('admin')->group(function () {
   Route::prefix('categories_hr')->group(function () {
     Route::get('/create',[  
       'as'=>'categories_hr.create',
-      'uses'=>'CategoryHrControlller@create'
+      'uses'=>'CategoryHrControlller@create',
+        'middleware'=>'can:category_hr-add'
       
       ]);
     Route::get('/',[  
       'as'=>'categories_hr.index',
       'uses'=>'CategoryHrControlller@index',
+      'middleware'=>'can:category_hr-list'
       ]);
     Route::post('/store',[  
       'as'=>'categories_hr.store',
@@ -69,11 +71,13 @@ Route::prefix('admin')->group(function () {
       ]);
      Route::get('/delete/{id}',[  
       'as'=>'categories_hr.delete',
-      'uses'=>'CategoryHrControlller@delete'
+      'uses'=>'CategoryHrControlller@delete',
+      'middleware'=>'can:category_hr-delete'
       ]);
       Route::get('/edit/{id}',[ 
       'as'=>'categories_hr.edit',
       'uses'=>'CategoryHrControlller@edit',
+      'middleware'=>'can:category_hr-edit'
       
     ]);
     Route::post('/update/{id}',[  
@@ -115,24 +119,26 @@ Route::prefix('hr')->group(function () {
      Route::get('/',[ 
       'as'=>'hr.index',
       'uses'=>'HRController@index',
-      'middleware'=>'can:product-list']);
+      'middleware'=>'can:hr-list']);
       Route::get('/create',[  
       'as'=>'hr.create',
       'uses'=>'HRController@create',
-      'middleware'=>'can:product-add']);
+      'middleware'=>'can:hr-add']);
       Route::post('/store',[  
       'as'=>'hr.store',
       'uses'=>'HRController@store']);
       Route::get('/edit/{id}',[ 
         'as'=>'hr.edit',
-        'uses'=>'HRController@edit'
+        'uses'=>'HRController@edit',
+        'middleware'=>'can:hr-edit'
         ]);
        Route::post('/update/{id}',[ 
         'as'=>'hr.update',
         'uses'=>'HRController@update']);
        Route::get('/delete/{id}',[ 
         'as'=>'hr.delete',
-        'uses'=>'HRController@delete'
+        'uses'=>'HRController@delete',
+        'middleware'=>'can:hr-delete'
         ]);
       
 });

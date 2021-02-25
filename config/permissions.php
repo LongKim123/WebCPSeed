@@ -29,18 +29,30 @@ return [
 		'add-role'=>'role_add',
 		'edit-role'=>'role_edit',
 		'delete-role'=>'role_delete',
+		'list-category_hr'=>'category_hr_list',
+		'add-category_hr'=>'category_hr_add',
+		'edit-category_hr'=>'category_hr_edit',
+		'delete-category_hr'=>'category_hr_delete',
+		'list-hr'=>'hr_list',
+		'add-hr'=>'hr_add',
+		'edit-hr'=>'hr_edit',
+		'delete-hr'=>'hr_delete'
+
 
 
 
 	],
 	'table_module'=>[
+
 		'category',
 		'menu',
 		'slider',
 		'product',
 		'setting',
 		'user',
-		'role'],
+		'role',
+		'category_hr',
+		'hr'],
 		'module_childrent'=>[
 			'list',
 			'add',
