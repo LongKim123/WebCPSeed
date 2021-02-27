@@ -114,6 +114,30 @@ Route::prefix('menus')->group(function () {
     
 });
 
+Route::prefix('brands')->group(function () {
+    Route::get('/',[  
+      'as'=>'brands.index',
+      'uses'=>'BrandsController@index']);
+     Route::get('/create',[ 
+      'as'=>'brands.create',
+      'uses'=>'BrandsController@create']);
+      Route::post('/store',[  
+      'as'=>'brands.store',
+      'uses'=>'BrandsController@store']);
+      Route::get('/edit/{id}',[ 
+      'as'=>'brands.edit',
+      'uses'=>'BrandsController@edit'
+      ]);
+        Route::get('/delete/{id}',[ 
+      'as'=>'brands.delete',
+      'uses'=>'BrandsController@delete']);
+      Route::post('/update/{id}',[  
+      'as'=>'brands.update',
+      'uses'=>'BrandsController@update',
+     ]);
+    
+});
+
 Route::prefix('hr')->group(function () {
     
      Route::get('/',[ 

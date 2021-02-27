@@ -33,6 +33,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('brands.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Thương hiệu
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
            <li class="nav-item">
             <a href="{{route('menus.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -64,7 +73,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Nhân sự
+                Nhân sự chủ chốt
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -80,7 +89,7 @@
               <li class="nav-item">
                 <a href="{{route('hr.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách nhân sự</p>
+                  <p>Danh sách nhân sự chủ chốt</p>
                 </a>
               </li>
               
