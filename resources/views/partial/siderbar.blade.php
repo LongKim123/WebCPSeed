@@ -51,6 +51,15 @@
               </p>
             </a>
           </li>
+             <li class="nav-item">
+            <a href="{{route('customers.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Danh sách khách hàng
+               
+              </p>
+            </a>
+          </li>
            <li class="nav-item">
             <a href="{{route('product.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -65,6 +74,15 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý Slider
+                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('orders.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Quản lý đơn hàng
                 
               </p>
             </a>

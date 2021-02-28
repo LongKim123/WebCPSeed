@@ -113,6 +113,18 @@ Route::prefix('menus')->group(function () {
      ]);
     
 });
+Route::prefix('orders')->group(function () {
+    Route::get('/',[  
+      'as'=>'orders.index',
+      'uses'=>'OrderController@index'
+     ]);
+     Route::get('/details/{id}',[ 
+      'as'=>'order.details',
+      'uses'=>'OrderController@detail'
+     ]);
+     
+    
+});
 
 Route::prefix('brands')->group(function () {
     Route::get('/',[  
@@ -135,6 +147,13 @@ Route::prefix('brands')->group(function () {
       'as'=>'brands.update',
       'uses'=>'BrandsController@update',
      ]);
+    
+});
+Route::prefix('customers')->group(function () {
+    Route::get('/',[  
+      'as'=>'customers.index',
+      'uses'=>'CustomerController@index']);
+     
     
 });
 
