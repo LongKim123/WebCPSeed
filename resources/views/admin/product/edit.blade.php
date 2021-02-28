@@ -63,19 +63,30 @@
                
               </div>
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Nhập nội dung sản phẩm</label>
-                <textarea  class="form-control" name="contents" row="3" id="ckeditor" >{{$product->content}}</textarea>
-              </div>
-              <div class="form-group">
                 <label >Chon danh muc</label>
                 <select class="form-control select_init"  name="category_id"  >
-                  <option value="0">Chon danh muc cha</option>
+                  <option value="0">Chon loại sản phẩm</option>
                   {!!$htmlOption!!}
                   
                 </select>
               </div>
+              <div class="form-group">
+                <label >Chon thương hiệu</label>
+                <select class="form-control select_init"  name="brand_id"  >
+                  <option selected value="{{$brand1->id}}">{{$brand1->name}}</option>
+                   @foreach($brands as $brandItem)
+                     <option value="{{$brandItem->id}}">{{$brandItem->name}}</option>
+                  @endforeach
+                  
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Nhập nội dung sản phẩm</label>
+                <textarea  class="form-control" name="contents" row="3" id="ckeditor" >{{$product->content}}</textarea>
+              </div>
+              
                <div class="form-group">
-                <label >Nhập tags</label>
+                <label >Tags</label>
                 <select name="tags[]" class="form-control tags_select_choose" multiple="multiple">
                   @foreach($product->tags as $tagItem)
                       <option value="{{$tagItem->name}}" selected >{{$tagItem->name}}</option>

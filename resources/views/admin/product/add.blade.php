@@ -67,17 +67,7 @@
                
               </div>
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Nhập nội dung sản phẩm</label>
-                <textarea class="form-control @error('contents') is-invalid @enderror" name="contents" id="ckeditor" row="3" >{{old('contents')}}</textarea>
-                 @error('contents')
-                   <div class=" alert alert-danger">
-                     {{$message}}
-                  </div>
-                 @enderror
-              </div>
-
-              <div class="form-group">
-                <label >Chon danh muc</label>
+                <label >Chon Loại sản phẩm</label>
                 <select class="form-control select_init @error('category_id') is-invalid @enderror"  name="category_id"  >
                   <option value="">Chon danh muc</option>
                   {!!$htmlOption!!}
@@ -90,6 +80,33 @@
                  @enderror
 
               </div>
+              <div class="form-group">
+                <label >Chon thương hiệu sản phẩm</label>
+                <select class="form-control select_init @error('category_id') is-invalid @enderror"  name="brand_id"  >
+                  <option value="">Chon thương hiệu</option>
+                  @foreach($brands as $brandItem)
+                     <option value="{{$brandItem->id}}">{{$brandItem->name}}</option>
+                  @endforeach
+                  
+                </select>
+                  @error('category_id')
+                   <div class=" alert alert-danger">
+                     {{$message}}
+                  </div>
+                 @enderror
+
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Nhập nội dung sản phẩm</label>
+                <textarea class="form-control @error('contents') is-invalid @enderror" name="contents" id="ckeditor" row="3" >{{old('contents')}}</textarea>
+                 @error('contents')
+                   <div class=" alert alert-danger">
+                     {{$message}}
+                  </div>
+                 @enderror
+              </div>
+
+              
                <div class="form-group">
                 <label >Nhập tags</label>
                 <select name="tags[]" class="form-control tags_select_choose @error('tags[]') is-invalid @enderror" multiple="multiple">

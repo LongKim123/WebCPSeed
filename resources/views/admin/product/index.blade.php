@@ -36,6 +36,7 @@
                   <th scope="col">Giá </th>
                   <th scope="col">Hình ảnh </th>
                   <th scope="col">Danh mục </th>
+                  <th scope="col">Thương Hiệu </th>
                   <th scope="col">Action</th>
                   
                 </tr>
@@ -56,6 +57,9 @@
                   </td>
                   <td>
                    {{optional($pro->category)->name}}
+                  </td>
+                  <td>
+                   {{optional($pro->brand)->name}}
                   </td>
                   <td> <a class="btn btn-default" href="{{route('product.edit',['id'=>$pro->id])}}" >Edit</a>
                     <a data-url="{{route('product.delete',['id'=>$pro->id])}}" class="btn btn-danger action_delete" >Delete</a></td>

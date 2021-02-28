@@ -13,7 +13,7 @@ use App\Components\Recusive;
 use Illuminate\Support\Str;
 use Storage;
 use App\Traits\StorageImageTrait;
-
+use App\Brand;
 use DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
@@ -26,13 +26,15 @@ class ProductController extends Controller
 	private $productImage;
 	private $tag;
 	private $productTag;
-	public function __construct(Category $category,Products $product,ProductImage $productImage,
+    private $brand;
+	public function __construct(Brand $brand,Category $category,Products $product,ProductImage $productImage,
 		Tag $tag,ProductTag $productTag){
 		$this->category=$category;
 		$this->product=$product;
 		$this->productImage=$productImage;
 		$this->tag=$tag;
 		$this->productTag=$productTag;
+        $this->brand=$brand;
 
 	}
     public function index(){
@@ -40,8 +42,9 @@ class ProductController extends Controller
     	return view('admin.product.index',compact('productList'));
     }
     public function create(){
+        $brands=$this->brand->get();
     	$htmlOption=$this->getCate($parentId='');
-    	return view('admin.product.add',compact('htmlOption'));
+    	return view('admin.product.add',compact('htmlOption','brands'));
     }
     public function getCate($parentId){
     	$data= $this->category->all();
@@ -58,7 +61,8 @@ class ProductController extends Controller
     		'price'=>$request->price,
     		'content'=>$request->contents,
     		'user_id'=>auth()->id(),
-    		'category_id'=>$request->category_id];
+    		'category_id'=>$request->category_id,
+            'brand_id'=>$request->brand_id];
     	$dataUploadFeatureImage=$this->storageTraitUpload($request,'feature_image_path','product');
     	
     	if(!empty($dataUploadFeatureImage)){
@@ -104,10 +108,11 @@ class ProductController extends Controller
    		
     }
     public function edit($id){
-
+        $brands=$this->brand->get();
     	$product=$this->product->find($id);
+        $brand1=$this->brand->find($product->brand_id);
     	$htmlOption=$this->getCate($product->category_id);
-    	return view('admin.product.edit',compact('product','htmlOption'));
+    	return view('admin.product.edit',compact('product','htmlOption','brands','brand1'));
     }
     public function update(Request $request,$id){
     	try{
@@ -117,7 +122,9 @@ class ProductController extends Controller
     		'price'=>$request->price,
     		'content'=>$request->contents,
     		'user_id'=>auth()->id(),
-    		'category_id'=>$request->category_id];
+    		'category_id'=>$request->category_id,
+            'brand_id'=>$request->brand_id
+            ];
     	$dataUploadFeatureImage=$this->storageTraitUpload($request,'feature_image_path','product');
     	
     	if(!empty($dataUploadFeatureImage)){
