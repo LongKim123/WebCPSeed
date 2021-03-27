@@ -5,11 +5,11 @@
 @endsection
 @section('css')
    
-  <link rel="stylesheet" type="text/css" href="{{asset('admins/product/index/list.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('public/admins/product/index/list.css')}}">
 @endsection
 @section('js')
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="{{asset('admins/main.js')}}" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="{{asset('public/admins/main.js')}}" type="text/javascript" charset="utf-8" async defer></script>
   
 @endsection
 @section('content')
@@ -23,12 +23,9 @@
     <div class="content">
       <div class="container-fluid">
         <div class="row"> 
-          <div class ="col-md-12">
-            <a href="{{route('product.create')}}" class="btn btn-success float-right-m-2">ADD</a>
-            
-          </div>
+          <!--  -->
           <div class="col-md-12">
-            <table class="table">
+            <table class="table" id="myTable1" >
               <thead>
                 <tr>
                   <th scope="col">STT</th>
@@ -72,11 +69,7 @@
             </table>
            
           </div>
-           <div class="col-sm-7 text-right text-center-xs">                
-          <ul class="pagination pagination-sm m-t-none m-b-none">
-           {{$productList->links()}}
-          </ul>
-        </div>
+          <!--  -->
           
           <!-- /.col-md-6 -->
        
@@ -88,4 +81,11 @@
     </div>
     <!-- /.content -->
   </div>
+  @endsection
+  @section('js')
+  <script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
   @endsection

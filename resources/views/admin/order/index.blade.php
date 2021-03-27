@@ -23,7 +23,10 @@
                   <th scope="col">Mã đơn hàng</th>
                   <th scope="col">Tên khách hàng </th>
                   <th scope="col">Tổng tiền</th>
+                  <th scope="col">Ghi chú</th>
+                  <th scope="col">Hình thức thanh toán </th>
                   <th scope="col">Ngày đăt hàng </th>
+
                   
                   <th scope="col">Action</th>
                   
@@ -39,8 +42,14 @@
                   <td>
                     {{number_format($orderitem->order_total)}}
                   </td>
+                   <td>{{$orderitem->node_order}}</td>
+                  @if(optional($orderitem->payment)->method==1)
+                  <td>OTD</td>
+                  @else
+                  <td>paypal</td>
+                  
+                  @endif
                   <td>
-
                     {{$orderitem->created_at}}
                   </td>
                   <td>

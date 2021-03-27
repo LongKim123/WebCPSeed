@@ -17,7 +17,7 @@
             
           </div>
           <div class="col-md-12">
-            <table class="table">
+            <table class="table" id="myTable1">
               <thead>
                 <tr>
                   <th scope="col">Mã khách hàng</th>

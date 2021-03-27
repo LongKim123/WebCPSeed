@@ -5,11 +5,11 @@
 @endsection
 @section('js')
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="{{asset('admins/main.js')}}" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="{{asset('public/admins/main.js')}}" type="text/javascript" charset="utf-8" async defer></script>
 @endsection
 @section('css')
    
-  <link rel="stylesheet" type="text/css" href="{{asset('admins/slider/index/index.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('public/admins/slider/index/index.css')}}">
 @endsection
 @section('content')
 
@@ -60,6 +60,16 @@
               
               </tbody>
             </table>
+        <form action="{{route('slider.import')}}" method="POST" enctype="multipart/form-data">
+          @csrf
+        <input type="file" name="file" accept=".xlsx"><br>
+       <input type="submit" value="Import CSV" name="import_csv" class="btn btn-warning">
+        </form>
+       <form action="{{route('slider.export')}}" method="POST">
+          @csrf
+       <input type="submit" value="Export CSV" name="export_csv" class="btn btn-success">
+      </form>
+
            
           </div>
            <div class="col-sm-7 text-right text-center-xs">                

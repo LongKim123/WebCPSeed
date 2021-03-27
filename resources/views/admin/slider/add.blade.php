@@ -6,7 +6,7 @@
 @section('css')
    
  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
- <link rel="stylesheet" type="text/css" href="{{asset('admins/slider/add/add.css')}}">
+ <link rel="stylesheet" type="text/css" href="{{asset('public/admins/slider/add/add.css')}}">
 @endsection
 @section('content')
 
@@ -56,7 +56,20 @@
                      {{$message}}
                   </div>
                  @enderror
-               
+                <div class="form-group">
+                <label >Chon Trang Hiện Slider</label>
+                <select class="form-control select_init @error('category_id') is-invalid @enderror"  name="page_id"  >
+                  <option value="">Chon danh muc</option>
+                  {!!$htmlOption!!}
+                  
+                </select>
+                  @error('category_id')
+                   <div class=" alert alert-danger">
+                     {{$message}}
+                  </div>
+                 @enderror
+
+              </div>
               
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>

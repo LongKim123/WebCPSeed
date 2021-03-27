@@ -8,12 +8,12 @@
  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
  
-  <link rel="stylesheet" type="text/css" href="{{asset('admins/role/add/add.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('public/admins/role/add/add.css')}}">
 
 @endsection
 @section('js')
 
- <script src="{{asset('admins/role/add/add.js')}}" type="text/javascript" charset="utf-8" async defer></script>
+ <script src="{{asset('public/admins/role/add/add.js')}}" type="text/javascript" charset="utf-8" async defer></script>
  </script>  
 
   

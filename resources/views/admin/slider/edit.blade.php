@@ -6,7 +6,7 @@
 @section('css')
    
  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
- <link rel="stylesheet" type="text/css" href="{{asset('admins/slider/edit/edit.css')}}">
+ <link rel="stylesheet" type="text/css" href="{{asset('public/admins/slider/edit/edit.css')}}">
 @endsection
 @section('content')
 
@@ -51,6 +51,7 @@
                   <input  type="file" class="form-control @error('image_path') is-invalid @enderror" name="image_path"   >
                  
               </div>
+              
               <div class="col-md-4">
                 <div class="row">
                   <img class="slider_image" src="http://localhost/CtyCPseed/{{$slider->image_path}}" alt="">
@@ -63,6 +64,14 @@
                      {{$message}}
                   </div>
                  @enderror
+              <div class="form-group">
+                <label >Chon danh muc</label>
+                <select class="form-control select_init"  name="category_id"  >
+                  
+                  {!!$htmlOption!!}
+                  
+                </select>
+              </div>
                
               
             <button type="submit" class="btn btn-primary">Submit</button>

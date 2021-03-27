@@ -87,6 +87,33 @@ Route::prefix('admin')->group(function () {
       
      
 });
+Route::prefix('news_farmer')->group(function () {
+    Route::get('/create',[  
+      'as'=>'news_farmer.create',
+      'uses'=>'NewFarmerController@create',      
+      ]);
+    Route::get('/',[  
+      'as'=>'news_farmer.index',
+      'uses'=>'NewFarmerController@index'
+      ]);
+    Route::post('/store',[  
+      'as'=>'news_farmer.store',
+      'uses'=>'NewFarmerController@store'
+      ]);
+     Route::get('/delete/{id}',[  
+      'as'=>'news_farmer.delete',
+      'uses'=>'NewFarmerController@delete'
+      ]);
+      Route::get('/edit/{id}',[ 
+      'as'=>'news_farmer.edit',
+      'uses'=>'NewFarmerController@edit',
+    ]);
+    Route::post('/update/{id}',[  
+      'as'=>'news_farmer.update',
+      'uses'=>'NewFarmerController@update',
+     ]);
+     
+});
 Route::prefix('menus')->group(function () {
     Route::get('/',[	
     	'as'=>'menus.index',
@@ -226,6 +253,12 @@ Route::prefix('slider')->group(function () {
         Route::post('/store',[   
         'as'=>'slider.store',
         'uses'=>'AdminSliderController@store']);
+        Route::post('/import',[   
+        'as'=>'slider.import',
+        'uses'=>'AdminSliderController@import']);
+        Route::post('/export',[   
+        'as'=>'slider.export',
+        'uses'=>'AdminSliderController@export']);
         Route::get('/edit/{id}',[   
         'as'=>'slider.edit',
         'uses'=>'AdminSliderController@edit',
@@ -329,7 +362,16 @@ Route::prefix('roles')->group(function () {
      
      
 });
+  Route::prefix('dashboard')->group(function () {
+    
+     
+     Route::get('/',[   
+        'as'=>'dashboard.ỉndex',
+        'uses'=>'DashBoardController@index']);
       
+     
+     
+});     
 
 
    

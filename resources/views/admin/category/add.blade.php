@@ -30,6 +30,11 @@
                   
                 </select>
               </div>
+               <div class="form-group">
+                <label for="exampleFormControlTextarea1">Nhập mô tả</label>
+                <textarea class="form-control" name="contents" id="ckeditor" row="3" ></textarea>
+                
+              </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
             

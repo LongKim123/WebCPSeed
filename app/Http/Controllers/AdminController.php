@@ -24,6 +24,10 @@ class AdminController extends Controller
             // Authentication passed...
             return redirect()->to('home');
         }
+        else{
+            $error='Sai tài khoản mật khẩu';
+            return view('login',compact('error'));
+        }
     }
     public function logout(){
         Auth::logout();

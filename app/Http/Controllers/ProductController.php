@@ -7,6 +7,7 @@ use App\Http\Requests\ProductAddRequest;
 use App\Category;
 use App\Products;
 use App\Tag;
+
 use App\ProductTag;
 use App\ProductImage;
 use App\Components\Recusive;
@@ -38,7 +39,7 @@ class ProductController extends Controller
 
 	}
     public function index(){
-    	$productList=$this->product->latest()->paginate(3);
+    	$productList=$this->product->get();
     	return view('admin.product.index',compact('productList'));
     }
     public function create(){
@@ -62,7 +63,8 @@ class ProductController extends Controller
     		'content'=>$request->contents,
     		'user_id'=>auth()->id(),
     		'category_id'=>$request->category_id,
-            'brand_id'=>$request->brand_id];
+            'brand_id'=>$request->brand_id,
+            'slug'=>Str::slug($request->name,'-')];
     	$dataUploadFeatureImage=$this->storageTraitUpload($request,'feature_image_path','product');
     	
     	if(!empty($dataUploadFeatureImage)){
@@ -123,7 +125,8 @@ class ProductController extends Controller
     		'content'=>$request->contents,
     		'user_id'=>auth()->id(),
     		'category_id'=>$request->category_id,
-            'brand_id'=>$request->brand_id
+            'brand_id'=>$request->brand_id,
+             'slug'=>Str::slug($request->name,'-')
             ];
     	$dataUploadFeatureImage=$this->storageTraitUpload($request,'feature_image_path','product');
     	

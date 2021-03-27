@@ -6,7 +6,7 @@
 @section('css')
    
  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
- <link rel="stylesheet" type="text/css" href="{{asset('admins/product/add/add.css')}}">
+ <link rel="stylesheet" type="text/css" href="{{asset('public/admins/product/add/add.css')}}">
 @endsection
 
 @section('content')
@@ -140,7 +140,7 @@
   @section('js')
    
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script src="{{asset('admins/product/add/add.js')}}">
+  <script src="{{asset('public/admins/product/add/add.js')}}">
    </script>
 
 

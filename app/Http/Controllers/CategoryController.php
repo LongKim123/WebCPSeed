@@ -19,12 +19,13 @@ class CategoryController extends Controller
     }
    
       public function index(){
-      	$categories=$this->category->paginate(3);
+      	$categories=$this->category->paginate(10);
     	return view('admin.category.index',compact('categories'));
     }
     public function store(Request $request){
     	$this->category->create([
     		'name'=>$request->name,
+            'des'=>$request->contents,
     		'parent_id'=>$request->parent_id,
     		'slug'=>Str::slug($request->name,'-')
     	]);
@@ -48,9 +49,11 @@ class CategoryController extends Controller
 
     }
     public function update($id,Request $request){
+        // dd($request->all());
     	$this->category->find($id)->update([
     		'name'=>$request->name,
     		'parent_id'=>$request->parent_id,
+            'des'=>$request->contents,
     		'slug'=>Str::slug($request->name,'-')
     	]);
     	return redirect()->route('categories.index');
